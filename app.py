@@ -5,6 +5,7 @@ URL = "https://hacker-news.firebaseio.com/v0"
 
 
 def get_top_story_ids(limit=30):
+    time.sleep(1)
     url = f"{URL}/topstories.json"
     response = requests.get(url)
     if response.status_code == 200:
@@ -15,6 +16,7 @@ def get_top_story_ids(limit=30):
 
 
 def get_story_details(story_id):
+    time.sleep(1)
     url = f"{URL}/item/{story_id}.json"
     response = requests.get(url)
     if response.status_code == 200:
@@ -33,7 +35,6 @@ def main():
             link = story.get("url", None)
             if link:
                 print({"title": title, "link": link})
-        time.sleep(1)
 
 
 if __name__ == "__main__":
